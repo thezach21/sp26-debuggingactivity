@@ -1,3 +1,7 @@
+package test;
+
+import main.Item;
+import main.Restaurant;
 import org.junit.Test;
 
 import java.util.ArrayList;
