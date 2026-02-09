@@ -23,7 +23,6 @@ public class Item {
     }
 
     public boolean isInStock() {
-        //TODO: make this >=0 instead
-        return this.stock > 0;
+        return this.stock >= 0;
     }
 }

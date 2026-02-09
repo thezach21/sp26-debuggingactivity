@@ -10,12 +10,10 @@ public class Restaurant {
         this.revenue = 0;
     }
 
-    //TODO: make this wrong
-    public int getRevenue() {return revenue;}
+    public int getRevenue() {return 0;}
 
     public void order(String item) {
-        //TODO: make this i <= menu.size instead
-        for (int i = 0; i < menu.size(); i++) {
+        for (int i = 0; i <= menu.size(); i++) {
             if (menu.get(i).getName().equals(item)) {
                 if (menu.get(i).isInStock()) {
                     menu.get(i).decreaseStock(1);
@@ -29,22 +27,17 @@ public class Restaurant {
     public void orderWithDiscount(String item, double discount) {
         for (int i = 0; i < menu.size(); i++) {
             if (menu.get(i).getName().equals(item)) {
-                //TODO: don't check if in stock
-                if (menu.get(i).isInStock()) {
-                    menu.get(i).decreaseStock(1);
-                    //TODO: mess up the discount calculation
-                    int newPrice = (int)(menu.get(i).getPrice() * (1.0 - (discount / 100)));
-                    this.revenue += newPrice;
-                    return;
-                }
+                menu.get(i).decreaseStock(1);
+                int newPrice = (int)(menu.get(i).getPrice() * (1.0 + (discount / 100)));
+                this.revenue += newPrice;
+                return;
             }
         }
     }
 
     public void restock(int amount) {
         for (Item i : this.menu) {
-            //TODO: make this always increase by 1
-            i.increaseStock(amount);
+            i.increaseStock(1);
         }
     }
 }
